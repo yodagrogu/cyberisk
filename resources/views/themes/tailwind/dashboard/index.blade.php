@@ -6,15 +6,15 @@
 <!-- Connecting to Database -->
 <?php
     // Username is root
-    $user = 'root';
-    $password = 'password';
+    $user = 'bbe3afa4a573d3';
+    $password = '69aff5a7';
 
     // Database name is geeksforgeeks
-    $database = 'cyberisk';
+    $database = 'heroku_90f5b24878841a9';
 
     // Server is localhost with
     // port number 3306
-    $servername='localhost:3306';
+    $servername='us-cdbr-east-06.cleardb.net:3306';
     $mysqli = new mysqli($servername, $user,
                     $password, $database);
 
@@ -423,15 +423,15 @@
 <!-- Insert & Delete Record into DB -->
 <?php
     // Username is root
-    $user = 'root';
-    $password = 'password';
+    $user = 'bbe3afa4a573d3';
+    $password = '69aff5a7';
 
     // Database name is geeksforgeeks
-    $database = 'cyberisk';
+    $database = 'heroku_90f5b24878841a9';
 
     // Server is localhost with
     // port number 3306
-    $servername='localhost:3306';
+    $servername='us-cdbr-east-06.cleardb.net:3306';
     $mysqli = new mysqli($servername, $user,
                     $password, $database);
 
