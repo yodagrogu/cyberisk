@@ -54,43 +54,20 @@
 <!-- Welcome to your Dashboard -->
 <section class="h-auto bg-white">
     <div class="max-w-7xl mx-auto py-16 px-10 sm:py-24 sm:px-6 lg:px-8 sm:text-center">
-        <p class="mt-1 text-4xl font-semibold text-indigo-600 sm:text-5xl sm:tracking-tight lg:text-6xl">Welcome to your Dashboard</p>
+        <p class="mt-1 text-4xl font-semibold text-indigo-600 sm:text-5xl sm:tracking-tight lg:text-6xl">Welcome to your Reporting</p>
         <p class="max-w-3xl mt-5 mx-auto text-xl text-gray-500">Are you ready to start updating your cyber security controls?</p>
     </div>
 </section>
 
-<!-- Tabs at the top of the Dashboard -->
-<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
-<div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-<div class="tab-wrapper flex flex-wrap justify-center -mb-px" x-data="{ activeTab:  0 }">
-    <div class="flex">
-        <button
-        @click="activeTab = 0"
-        class="tab-control mr-2 inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:font-bold hover:border-gray-300 dark:hover:text-gray-300"
-        :class="{ 'active': activeTab === 0 }"
-        >Overview</button>
-        <button
-        @click="activeTab = 1"
-        class="tab-control mr-2 inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:font-bold hover:border-gray-300 dark:hover:text-gray-300"
-        :class="{ 'active': activeTab === 1 }"
-        >Insert New Record</button>
-        <button
-        @click="activeTab = 2"
-        class="tab-control mr-2 inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:font-bold hover:border-gray-300 dark:hover:text-gray-300"
-        :class="{ 'active': activeTab === 2 }"
-        >Update Records</button>
-    </div>
 
 
-
-<!-- Security Controls Table - Overview Tab-->
-<div class="tab-panel" :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0">
+<!-- Security Controls Table -->
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
 
         <!-- Start coding here -->
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
 
                 <!-- Section Title -->
                 <div class="relative flex-1">
@@ -98,9 +75,9 @@
                         Security Controls Table
                     </h>
                 </div>
-            </div>
+        </div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
 
                 <!-- Search Function - Works with threats -->
                 <div class="w-full md:w-1/2">
@@ -181,7 +158,6 @@
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -231,11 +207,9 @@
                                             <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                         </li>
                                     </ul>
-                                    <form method="get">
-                                        <div class="py-1">
-                                            <input type="submit" value="Delete" name="delete" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                        </div>
-                                    </form>
+                                    <div class="py-1">
+                                        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -289,37 +263,57 @@
                     </li>
                 </ul>
             </nav>
-
         </div>
     </div>
-</section>
-</div>
+    </section>
 
+<!-- Script for Search Function in table -->
+<script>
+    function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
 
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
+    }
+    }
+</script>
 
 <!-- Security Controls Form - Add New Controls -->
-<div class="tab-panel" :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1">
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
 
         <!-- Start coding here -->
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-            <div class="items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div class="items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
 
-                <!-- Section Title -->
-                <div class="relative flex-1">
-                    <h class="text-lg font-medium leading-6 text-gray-700">
-                        Add a New Security Control
-                    </h>
-                </div>
+        <!-- Section Title -->
+        <div class="relative flex-1">
+	        <h class="text-lg font-medium leading-6 text-gray-700">
+	            Add a New Security Control
+	        </h>
+		</div>
 
-            </div>
+        </div>
 
-            <div class="items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div class="items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
 
-            <!-- Form for New Controls -->
+        <!-- Form for New Controls -->
 
-            <form method="get">
+        <form method="get">
                     <div class="relative p-2 leading-6 grid gap-6 mb-6 md:grid-cols-2">
                         <div>
                             <label for="sec_control" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Security Control</label>
@@ -369,58 +363,27 @@
                     </div>
 
                 <input type="submit" value="Submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            </form>
+        </form>
 
                 <!-- Capture Form Input -->
-                <?php
-                    try{
-                        $sec_control = $_GET["control"];
-                        $threat = $_GET["threat"];
-                        $res_risk = $_GET["res_risk"];
-                        $status = $_GET["status"];
-                        $inh_risk = $_GET["inh_risk"];
-                    }
-                    catch (Exception $e) {
-                    }
-                ?>
-
-            </div>
-        </div>
+                    <?php
+                        try{
+                            $sec_control = $_GET["control"];
+                            $threat = $_GET["threat"];
+                            $res_risk = $_GET["res_risk"];
+                            $status = $_GET["status"];
+                            $inh_risk = $_GET["inh_risk"];
+                        }
+                        catch (Exception $e) {
+                        }
+                    ?>
 
     </div>
-</section>
-</div>
-
-</div>
+    </div>
 </div>
 </section>
 
-<!-- Script for Search Function in table -->
-<script>
-    function myFunction() {
-    // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-        }
-    }
-    }
-</script>
-
-<!-- Insert & Delete Record into DB -->
+<!-- Connecting to Database -->
 <?php
     // Username is root
     $user = 'root';
@@ -454,24 +417,6 @@
     if ($result === TRUE) {
     echo "New record created successfully";
     } else {
-    }
-
-    // SQL query to delete control
-    try{
-        if(isset($_GET['delete'])) {
-            $id=$_REQUEST['id'];
-            echo $id;
-        }
-    }
-    catch (Exception $e) {
-    }
-    // Check for delete button
-    try{
-        if(isset($_GET['delete'])) {
-            echo "Delete is selected";
-        }
-    }
-    catch (Exception $e) {
     }
 
 
